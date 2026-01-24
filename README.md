@@ -17,7 +17,7 @@
 * **Core Parking:** Monitors the percentage of parked CPU cores that cause wake-up latencies.
 * **Processor Queue Length:** Detects if your CPU threads are being bottlenecked by too many active processes.
 * **Context Switches:** Monitors how often the CPU switches between different execution threads—a high count often indicates background "noise" or bloatware.
-* 
+
 ### 🔹 3. Advanced Resource Audit (PERF)
 * **Disk I/O:** Monitors Disk Queue Length, Response Time (ms), and Active Time to identify stutters during asset loading.
 * **Memory Insight:** Tracks Page Faults, available RAM, and the System Cache (Standby List) volume.
