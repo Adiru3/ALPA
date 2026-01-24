@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALPA v1.2 // Terminal Access</title>
+    <title>ALPA v1.5 // Terminal Access</title>
     <style>
         :root {
             --bg: #000000;
@@ -129,7 +129,7 @@
     </div>
 
     <header class="terminal-header">
-        <div class="br-line">⚡ ALPA (Amazing Latency Performance Audit) v1.2</div>
+        <div class="br-line">⚡ ALPA (Amazing Latency Performance Audit) v1.5</div>
         <div class="sub-line">ROOT@ADIRU:~# LOADING_FULL_FEATURE_SET...</div>
     </header>
 
@@ -142,52 +142,40 @@
     </div>
 
     <div class="section">
-        <div class="section-tag">[02] CORE_FUNCTIONALITY</div>
-        
-        <ul data-lang="en" class="visible">
-            <li><b>Timer Resolution:</b> High-precision monitoring via <span class="code-inline">ntdll.dll</span>.</li>
-            <li><b>Mouse Polling Rate:</b> Real-time Hz calculation using <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
-            <li><b>Processor Queue:</b> Detects if CPU threads are bottlenecked by too many processes.</li>
-            <li><b>Context Switches:</b> Monitors frequency of thread switching to identify background "noise".</li>
-            <li><b>Kernel Tracing (ETW):</b> DPC/ISR audit for problematic drivers using Event Tracing for Windows.</li>
-            <li><b>Spike Detection:</b> Auto-logs any DPC spike exceeding <span style="color:var(--error)">500µs</span> in red.</li>
-            <li><b>System Diagnostics:</b> Quick view of OS version, CPU threads, and disk models (NVMe/SSD/HDD).</li>
-            <li><b>Auto-Audit:</b> Application initiates a full system scan immediately upon launch.</li>
-        </ul>
+            <div class="section-tag">[02] CORE_FUNCTIONALITY_V1.5</div>
+            
+            <ul data-lang="en" class="visible">
+                <li><b>1. Latency & Input:</b> Timer resolution via <span class="code-inline">ntdll.dll</span> and real-time Mouse Hz via <span class="code-inline">Raw Input</span> to ensure rated peripheral speeds.</li>
+                <li><b>2. Performance Monitoring:</b> Detects <span class="code-inline">Power Throttling</span>, monitors Core Parking, Processor Queue, and Context Switches to identify background noise.</li>
+                <li><b>3. Advanced Resource Audit (PERF):</b> Monitors Disk Queue, Response Time (ms), Page Faults, RAM, Standby List, and UDP receive errors.</li>
+                <li><b>4. Kernel Tracing (ETW):</b> DPC/ISR audit via Event Tracing for Windows with auto-logging of spikes exceeding <span style="color:var(--error)">500µs</span>.</li>
+                <li><b>5. System Diagnostics:</b> Quick hardware view (OS, CPU threads, Disks) and automatic full system scan upon launch.</li>
+            </ul>
 
-        <ul data-lang="ru">
-            <li><b>Таймер системы:</b> Высокоточный мониторинг разрешения через <span class="code-inline">ntdll.dll</span>.</li>
-            <li><b>Частота мыши:</b> Расчет Гц в реальном времени через <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
-            <li><b>Очередь процессора:</b> Детекция перегрузки потоков CPU избыточными процессами.</li>
-            <li><b>Переключения контекста:</b> Мониторинг частоты смены потоков для поиска фонового «шума».</li>
-            <li><b>Трассировка ядра (ETW):</b> Аудит DPC/ISR для поиска проблемных драйверов.</li>
-            <li><b>Детекция спайков:</b> Авто-логирование задержек DPC выше <span style="color:var(--error)">500мкс</span> красным цветом.</li>
-            <li><b>Диагностика железа:</b> Данные об ОС, потоках CPU и моделях дисков (NVMe/SSD/HDD).</li>
-            <li><b>Авто-аудит:</b> Приложение запускает полное сканирование системы сразу при старте.</li>
-        </ul>
+            <ul data-lang="ru">
+                <li><b>1. Задержки и Ввод:</b> Таймер системы через <span class="code-inline">ntdll.dll</span> и расчет Гц мыши через <span class="code-inline">Raw Input</span> для проверки скорости периферии.</li>
+                <li><b>2. Мониторинг производительности:</b> Детекция <span class="code-inline">Power Throttling</span>, парковки ядер, очереди процессора и переключений контекста.</li>
+                <li><b>3. Продвинутый аудит ресурсов (PERF):</b> Мониторинг очереди диска, времени отклика (мс), ошибок страниц, доступной RAM, Standby List и UDP ошибок.</li>
+                <li><b>4. Трассировка ядра (ETW):</b> Аудит DPC/ISR через ETW с авто-логированием задержек выше <span style="color:var(--error)">500мкс</span> красным цветом.</li>
+                <li><b>5. Диагностика системы:</b> Быстрый обзор железа (ОС, потоки CPU, диски) и автоматическое полное сканирование при старте.</li>
+            </ul>
 
-        <ul data-lang="ua">
-            <li><b>Таймер системи:</b> Високоточний моніторинг роздільної здатності через <span class="code-inline">ntdll.dll</span>.</li>
-            <li><b>Частота миші:</b> Розрахунок Гц у реальному часі через <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
-            <li><b>Черга процесора:</b> Детекція перевантаження потоків CPU надмірними процесами.</li>
-            <li><b>Перемикання контексту:</b> Моніторинг частоти зміни потоків для пошуку фонового «шуму».</li>
-            <li><b>Трасування ядра (ETW):</b> Аудит DPC/ISR для пошуку проблемних драйверів.</li>
-            <li><b>Детекція спайків:</b> Авто-логування затримок DPC вище <span style="color:var(--error)">500мкс</span> червоним кольором.</li>
-            <li><b>Діагностика заліза:</b> Дані про ОС, потоки CPU та моделі дисків (NVMe/SSD/HDD).</li>
-            <li><b>Авто-аудит:</b> Додаток запускає повне сканування системи відразу при старті.</li>
-        </ul>
+            <ul data-lang="ua">
+                <li><b>1. Затримки та Ввід:</b> Таймер системи через <span class="code-inline">ntdll.dll</span> та розрахунок Гц миші через <span class="code-inline">Raw Input</span> для перевірки швидкості периферії.</li>
+                <li><b>2. Моніторинг продуктивності:</b> Детекція <span class="code-inline">Power Throttling</span>, паркування ядер, черги процесора та перемикання контексту.</li>
+                <li><b>3. Просунутий аудит ресурсів (PERF):</b> Моніторинг черги диска, часу відгуку (мс), помилок сторінок, вільної RAM, Standby List та UDP помилок.</li>
+                <li><b>4. Трасування ядра (ETW):</b> Аудит DPC/ISR через ETW з авто-логуванням затримок понад <span style="color:var(--error)">500мкс</span> червоним кольором.</li>
+                <li><b>5. Діагностика системи:</b> Швидкий огляд заліза (ОС, потоки CPU, диски) та автоматичне повне сканування при старті.</li>
+            </ul>
 
-        <ul data-lang="tr">
-            <li><b>Zamanlayıcı Çözünürlüğü:</b> <span class="code-inline">ntdll.dll</span> üzerinden yüksek hassasiyetli izleme.</li>
-            <li><b>Fare Polling Rate:</b> <span class="code-inline">Raw Input (WM_INPUT)</span> kullanarak gerçek zamanlı Hz hesaplama.</li>
-            <li><b>İşlemci Kuyruğu:</b> CPU iş parçacıklarının darboğaz olup olmadığını tespit eder.</li>
-            <li><b>Bağlam Değiştirme:</b> Arka plan "gürültüsünü" belirlemek için iş parçacığı değişimini izler.</li>
-            <li><b>Çekirdek İzleme (ETW):</b> Sorunlu sürücüler için ETW tabanlı DPC/ISR denetimi.</li>
-            <li><b>Sıçrama Tespiti:</b> <span style="color:var(--error)">500µs</span> üzerindeki DPC sıçramalarını kırmızı renkle günlüğe kaydeder.</li>
-            <li><b>Sistem Tanılama:</b> İşletim sistemi, CPU ve disk modelleri (NVMe/SSD/HDD) hakkında hızlı bilgi.</li>
-            <li><b>Otomatik Denetim:</b> Uygulama açılışta otomatik olarak tam sistem taraması başlatır.</li>
-        </ul>
-    </div>
+            <ul data-lang="tr">
+                <li><b>1. Gecikme ve Giriş:</b> <span class="code-inline">ntdll.dll</span> üzerinden zamanlayıcı ve çevre birimi hızını doğrulamak için <span class="code-inline">Raw Input</span> fare Hz ölçümü.</li>
+                <li><b>2. Performans İzleme:</b> <span class="code-inline">Power Throttling</span> tespiti, Çekirdek Park Etme, İşlemci Kuyruğu ve Bağlam Değiştirme takibi.</li>
+                <li><b>3. Gelişmiş Kaynak Denetimi (PERF):</b> Disk Kuyruğu, Yanıt Süresi (ms), Sayfa Hataları, RAM, Standby List ve UDP hatalarının izlenmesi.</li>
+                <li><b>4. Çekirdek İzleme (ETW):</b> <span style="color:var(--error)">500µs</span> üzerindeki DPC sıçramalarının otomatik günlüğe kaydedilmesiyle DPC/ISR denetimi.</li>
+                <li><b>5. Sistem Tanılama:</b> Hızlı donanım görünümü (OS, CPU, Diskler) ve açılışta otomatik tam sistem taraması.</li>
+            </ul>
+        </div>
 
     <div class="section">
         <div class="section-tag">[03] ACCESS_REQUIREMENTS</div>
@@ -200,7 +188,7 @@
     </div>
 
     <div class="action-row">
-        <a href="https://github.com/Adiru3/ALPA/releases/download/V1.2/ALPA.zip" class="btn">DOWNLOAD_BIN_V1.2</a>
+        <a href="https://github.com/Adiru3/ALPA/releases/download/V1.2/ALPA.zip" class="btn">DOWNLOAD_BIN_V1.5</a>
         <a href="https://github.com/Adiru3/ALPA" style="border: 1px solid var(--border); padding: 10px 25px; color: #fff; font-size: 13px; font-weight: bold;">VIEW_SOURCE</a>
     </div>
 
