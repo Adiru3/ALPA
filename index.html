@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALPA v1.2 // Terminal Access</title>
+    <style>
+        :root {
+            --bg: #000000;
+            --text: #ffffff;
+            --dim: #555555;
+            --border: #1a1a1a;
+            --accent: #00ffff;
+            --warn: #ffff00;
+            --error: #ff0000;
+            --success: #00ff00;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .terminal-container {
+            width: 100%;
+            max-width: 900px;
+            border: 1px solid var(--border);
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,1);
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            justify-content: flex-end;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--dim);
+            padding: 5px 10px;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .lang-btn.active {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .terminal-header {
+            border-bottom: 1px double var(--border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .br-line { color: var(--accent); font-weight: bold; font-size: 1.2rem; }
+        .sub-line { color: var(--dim); font-size: 0.8rem; margin-top: 5px; }
+
+        .section { margin-bottom: 35px; }
+        .section-tag {
+            background: #111;
+            color: var(--dim);
+            padding: 2px 10px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        ul { list-style: none; padding: 0; margin: 0; }
+        li { margin-bottom: 12px; font-size: 14px; position: relative; padding-left: 20px; line-height: 1.4; }
+        li::before { content: ">"; position: absolute; left: 0; color: var(--dim); }
+
+        b { color: #fff; }
+        .code-inline { color: var(--success); font-weight: bold; }
+
+        .action-row {
+            margin-top: 50px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
+            border: 1px solid #fff;
+        }
+
+        .btn:hover { background: transparent; color: #fff; }
+
+        .social-badges { margin-top: 30px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+        footer {
+            margin-top: 50px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+            font-size: 11px;
+            color: var(--dim);
+            text-align: center;
+        }
+
+        [data-lang] { display: none; }
+        [data-lang].visible { display: block; }
+    </style>
+</head>
+<body>
+
+<div class="terminal-container">
+    <div class="lang-switcher">
+        <button class="lang-btn active" onclick="setLang('en')">EN</button>
+        <button class="lang-btn" onclick="setLang('ru')">RU</button>
+        <button class="lang-btn" onclick="setLang('ua')">UA</button>
+        <button class="lang-btn" onclick="setLang('tr')">TR</button>
+    </div>
+
+    <header class="terminal-header">
+        <div class="br-line">⚡ ALPA (Amazing Latency Performance Audit) v1.2</div>
+        <div class="sub-line">ROOT@ADIRU:~# LOADING_FULL_FEATURE_SET...</div>
+    </header>
+
+    <div class="section">
+        <div class="section-tag">[01] SYSTEM_DESCRIPTION</div>
+        <div data-lang="en" class="visible"><b>ALPA</b> is a high-performance auditing utility developed by <b>amazingb01 (Adiru)</b>. It is designed to diagnose real-time latencies and performance bottlenecks.</div>
+        <div data-lang="ru"><b>ALPA</b> — это высокопроизводительная утилита для аудита, разработанная <b>amazingb01 (Adiru)</b>. Она предназначена для диагностики задержек и узких мест производительности в реальном времени.</div>
+        <div data-lang="ua"><b>ALPA</b> — це високопродуктивна утиліта для аудиту, розроблена <b>amazingb01 (Adiru)</b>. Вона призначена для діагностики затримок та вузьких місць продуктивності у реальному часі.</div>
+        <div data-lang="tr"><b>ALPA</b>, <b>amazingb01 (Adiru)</b> tarafından geliştirilen yüksek performanslı bir denetim yazılımıdır. Gerçek zamanlı gecikmeleri ve performans darboğazlarını teşhis etmek için tasarlanmıştır.</div>
+    </div>
+
+    <div class="section">
+        <div class="section-tag">[02] CORE_FUNCTIONALITY</div>
+        
+        <ul data-lang="en" class="visible">
+            <li><b>Timer Resolution:</b> High-precision monitoring via <span class="code-inline">ntdll.dll</span>.</li>
+            <li><b>Mouse Polling Rate:</b> Real-time Hz calculation using <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
+            <li><b>Processor Queue:</b> Detects if CPU threads are bottlenecked by too many processes.</li>
+            <li><b>Context Switches:</b> Monitors frequency of thread switching to identify background "noise".</li>
+            <li><b>Kernel Tracing (ETW):</b> DPC/ISR audit for problematic drivers using Event Tracing for Windows.</li>
+            <li><b>Spike Detection:</b> Auto-logs any DPC spike exceeding <span style="color:var(--error)">500µs</span> in red.</li>
+            <li><b>System Diagnostics:</b> Quick view of OS version, CPU threads, and disk models (NVMe/SSD/HDD).</li>
+            <li><b>Auto-Audit:</b> Application initiates a full system scan immediately upon launch.</li>
+        </ul>
+
+        <ul data-lang="ru">
+            <li><b>Таймер системы:</b> Высокоточный мониторинг разрешения через <span class="code-inline">ntdll.dll</span>.</li>
+            <li><b>Частота мыши:</b> Расчет Гц в реальном времени через <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
+            <li><b>Очередь процессора:</b> Детекция перегрузки потоков CPU избыточными процессами.</li>
+            <li><b>Переключения контекста:</b> Мониторинг частоты смены потоков для поиска фонового «шума».</li>
+            <li><b>Трассировка ядра (ETW):</b> Аудит DPC/ISR для поиска проблемных драйверов.</li>
+            <li><b>Детекция спайков:</b> Авто-логирование задержек DPC выше <span style="color:var(--error)">500мкс</span> красным цветом.</li>
+            <li><b>Диагностика железа:</b> Данные об ОС, потоках CPU и моделях дисков (NVMe/SSD/HDD).</li>
+            <li><b>Авто-аудит:</b> Приложение запускает полное сканирование системы сразу при старте.</li>
+        </ul>
+
+        <ul data-lang="ua">
+            <li><b>Таймер системи:</b> Високоточний моніторинг роздільної здатності через <span class="code-inline">ntdll.dll</span>.</li>
+            <li><b>Частота миші:</b> Розрахунок Гц у реальному часі через <span class="code-inline">Raw Input (WM_INPUT)</span>.</li>
+            <li><b>Черга процесора:</b> Детекція перевантаження потоків CPU надмірними процесами.</li>
+            <li><b>Перемикання контексту:</b> Моніторинг частоти зміни потоків для пошуку фонового «шуму».</li>
+            <li><b>Трасування ядра (ETW):</b> Аудит DPC/ISR для пошуку проблемних драйверів.</li>
+            <li><b>Детекція спайків:</b> Авто-логування затримок DPC вище <span style="color:var(--error)">500мкс</span> червоним кольором.</li>
+            <li><b>Діагностика заліза:</b> Дані про ОС, потоки CPU та моделі дисків (NVMe/SSD/HDD).</li>
+            <li><b>Авто-аудит:</b> Додаток запускає повне сканування системи відразу при старті.</li>
+        </ul>
+
+        <ul data-lang="tr">
+            <li><b>Zamanlayıcı Çözünürlüğü:</b> <span class="code-inline">ntdll.dll</span> üzerinden yüksek hassasiyetli izleme.</li>
+            <li><b>Fare Polling Rate:</b> <span class="code-inline">Raw Input (WM_INPUT)</span> kullanarak gerçek zamanlı Hz hesaplama.</li>
+            <li><b>İşlemci Kuyruğu:</b> CPU iş parçacıklarının darboğaz olup olmadığını tespit eder.</li>
+            <li><b>Bağlam Değiştirme:</b> Arka plan "gürültüsünü" belirlemek için iş parçacığı değişimini izler.</li>
+            <li><b>Çekirdek İzleme (ETW):</b> Sorunlu sürücüler için ETW tabanlı DPC/ISR denetimi.</li>
+            <li><b>Sıçrama Tespiti:</b> <span style="color:var(--error)">500µs</span> üzerindeki DPC sıçramalarını kırmızı renkle günlüğe kaydeder.</li>
+            <li><b>Sistem Tanılama:</b> İşletim sistemi, CPU ve disk modelleri (NVMe/SSD/HDD) hakkında hızlı bilgi.</li>
+            <li><b>Otomatik Denetim:</b> Uygulama açılışta otomatik olarak tam sistem taraması başlatır.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <div class="section-tag">[03] ACCESS_REQUIREMENTS</div>
+        <div class="warning-box">
+            <b style="color:var(--warn)" data-lang="en" class="visible">[!] ADMIN_PRIVILEGES: REQUIRED FOR KERNEL TRACING</b>
+            <b style="color:var(--warn)" data-lang="ru">[!] ПРАВА АДМИНИСТРАТОРА: ТРЕБУЮТСЯ ДЛЯ ТРАССИРОВКИ ЯДРА</b>
+            <b style="color:var(--warn)" data-lang="ua">[!] ПРАВА АДМІНІСТРАТОРА: ПОТРІБНІ ДЛЯ ТРАСУВАННЯ ЯДРА</b>
+            <b style="color:var(--warn)" data-lang="tr">[!] YÖNETİCİ YETKİSİ: ÇEKİRDEK İZLEME İÇİN GEREKLİDİR</b>
+        </div>
+    </div>
+
+    <div class="action-row">
+        <a href="https://github.com/Adiru3/ALPA/releases/download/V1.2/ALPA.zip" class="btn">DOWNLOAD_BIN_V1.2</a>
+        <a href="https://github.com/Adiru3/ALPA" style="border: 1px solid var(--border); padding: 10px 25px; color: #fff; font-size: 13px; font-weight: bold;">VIEW_SOURCE</a>
+    </div>
+
+    <div class="social-badges">
+        <a href="https://www.youtube.com/@adiruaim"><img src="https://img.shields.io/badge/YouTube-@adiruaim-FF0000?style=for-the-badge&logo=youtube" alt="YouTube"></a>
+        <a href="https://www.tiktok.com/@adiruhs"><img src="https://img.shields.io/badge/TikTok-@adiruhs-000000?style=for-the-badge&logo=tiktok" alt="TikTok"></a>
+        <a href="https://donatello.to/Adiru3"><img src="https://img.shields.io/badge/Support-Donatello-orange?style=for-the-badge" alt="Donatello"></a>
+    </div>
+
+    <footer>
+        [ENV]: C# // .NET 4.8 // MINIMAL OVERHEAD ARCHITECTURE<br>
+        &copy; 2026 ALPA BY amazingb01 (Adiru). ALL SYSTEMS NOMINAL.
+    </footer>
+</div>
+
+<script>
+    function setLang(lang) {
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.toLowerCase() === lang) btn.classList.add('active');
+        });
+        document.querySelectorAll('[data-lang]').forEach(el => {
+            el.classList.remove('visible');
+            if(el.getAttribute('data-lang') === lang) el.classList.add('visible');
+        });
+    }
+</script>
+
+</body>
+</html>
