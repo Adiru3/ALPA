@@ -37,15 +37,15 @@
 ## ⚠️ Important Requirements
 
 ### 🛡️ Run as Administrator
-To access **Kernel Tracing** and monitor **DPC spikes**, ALP must be launched with **Administrator Privileges**. 
+To access **Kernel Tracing** and monitor **DPC spikes**, ALPA must be launched with **Administrator Privileges**. 
 * If launched as a standard user, the Console will display: `[WARN] Running as User. Kernel trace disabled!`.
 
 ## 📖 How to Use
 
-1.  **Launch:** Run `ALP.exe` as Administrator.
+1.  **Launch:** Run `ALPA.exe` as Administrator.
 2.  **Auto-Audit:** Wait a few seconds for the console to confirm `[OK] Admin rights confirmed. Kernel trace enabled`.
 3.  **Check Latency:** Go to the **LAT** tab and move your mouse quickly to see your real-time Polling Rate.
-4.  **Find Stutters:** Keep ALP running in the background while gaming. Check the **Console (LOG)** tab afterward. If you see `[SPIKE]` entries, a specific driver is delaying your CPU.
+4.  **Find Stutters:** Keep ALPA running in the background while gaming. Check the **Console (LOG)** tab afterward. If you see `[SPIKE]` entries, a specific driver is delaying your CPU.
 
 ## 🔗 Connect with me
 
