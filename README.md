@@ -1,18 +1,19 @@
 # ⚡ ALPA (Amazing Latency Performance Audit) v1.5
 
 **ALPA** is a comprehensive system auditing and optimization utility developed by **amazingb01 (Adiru)**. It provides deep insight into Windows internals, helping gamers and power users diagnose input lag, micro-stutters, and hardware bottlenecks in real-time.
-
-<img width="845" alt="ALPA Interface" src="https://github.com/user-attachments/assets/ebdfba59-4884-47cf-90d5-9fbc2de4cff6" />
-
 ---
 
 ## 🚀 Features
+
+<img width="850" height="508" alt="image" src="https://github.com/user-attachments/assets/f431e1c1-1619-4300-88ea-ed85a914705b" />
 
 ### 🔹 1. Advanced Driver Latency (Kernel Mode)
 * **DPC & ISR Analysis:** Uses **Event Tracing for Windows (ETW)** to intercept kernel calls.
 * **Real-Time Statistics:** Tracks **Current**, **Average**, **Minimum**, and **Maximum** latency (in µs) for every active driver.
 * **Spike Detection:** Automatically logs high latency spikes (>500µs) causing frame drops.
 * **CSV Export:** Automatically saves a detailed `ALPA_Drivers_Report.csv` upon exit for deeper analysis.
+
+<img width="820" height="590" alt="image" src="https://github.com/user-attachments/assets/47c6d60e-ce10-4495-9bd5-f63bf7fd9c01" />
 
 ### 🔹 2. Process & Security Audit
 * **Resource Monitor:** Detailed sorting by CPU Time, Threads, RAM, VRAM (GPU Memory), and Disk I/O.
@@ -21,11 +22,15 @@
     * **Fake System Processes:** Detects fake `svchost.exe`, `csrss.exe`, etc., running from wrong directories.
     * **Hidden Consoles:** Identifies suspicious CMD/PowerShell windows running in the background.
 
+<img width="819" height="452" alt="image" src="https://github.com/user-attachments/assets/897d212b-b4f2-4382-ac63-b749a1711c05" />
+
 ### 🔹 3. Performance & Hardware Monitor
 * **Interrupts Per Core:** Visualizes interrupt load distribution across CPU cores to detect "Core 0" bottlenecks.
 * **Global I/O:** Monitors total Internet bandwidth and Disk usage percentage.
 * **Memory Insight:** Tracks Page Faults, Available RAM, and Standby Cache.
 * **Disk Diagnostics:** Monitors Queue Length and Response Time for NVMe/SSD/HDD.
+
+<img width="869" height="468" alt="image" src="https://github.com/user-attachments/assets/d74c6666-b0e4-48fc-8f35-f990a95d6660" />
 
 ### 🔹 4. Input & System Lag
 * **Timer Resolution:** Displays the current Windows Timer Resolution (e.g., 0.5ms or 15.6ms).
@@ -35,6 +40,8 @@
     * **HAGS:** Checks Hardware Accelerated GPU Scheduling status.
     * **HPET:** Verifies if High Precision Event Timer is forced.
     * **TSC Invariant:** Checks CPU timer stability.
+
+<img width="875" height="585" alt="image" src="https://github.com/user-attachments/assets/a249b9f5-20e2-4de3-97f2-faa7b98eb362" />
 
 ### 🔹 5. Startup Manager
 * **Deep Audit:** Scans multiple startup locations often missed by Task Manager:
