@@ -1,42 +1,55 @@
-# ⚡ ALPA (Amazing Latency Performance Audit) v1.2
+# ⚡ ALPA (Amazing Latency Performance Audit) v1.5
 
-**ALPA** is a high-performance system auditing utility developed by **amazingb01 (Adiru)**. It is designed for gamers, power users, and system optimizers to diagnose real-time latencies and performance bottlenecks that affect gameplay and system responsiveness.
+**ALPA** is a comprehensive system auditing and optimization utility developed by **amazingb01 (Adiru)**. It provides deep insight into Windows internals, helping gamers and power users diagnose input lag, micro-stutters, and hardware bottlenecks in real-time.
 
-<img width="845" height="292" alt="image" src="https://github.com/user-attachments/assets/ebdfba59-4884-47cf-90d5-9fbc2de4cff6" />
+<img width="845" alt="ALPA Interface" src="https://github.com/user-attachments/assets/ebdfba59-4884-47cf-90d5-9fbc2de4cff6" />
 
 ---
 
 ## 🚀 Features
 
-### 🔹 1. Latency & Input Analysis
-* **Timer Resolution:** High-precision monitoring of the Windows system timer resolution via `ntdll.dll`.
-* **Mouse Polling Rate:** Real-time calculation of mouse frequency (Hz) using `Raw Input` (WM_INPUT) to ensure your peripheral is performing at its rated speed.
+### 🔹 1. Advanced Driver Latency (Kernel Mode)
+* **DPC & ISR Analysis:** Uses **Event Tracing for Windows (ETW)** to intercept kernel calls.
+* **Real-Time Statistics:** Tracks **Current**, **Average**, **Minimum**, and **Maximum** latency (in µs) for every active driver.
+* **Spike Detection:** Automatically logs high latency spikes (>500µs) causing frame drops.
+* **CSV Export:** Automatically saves a detailed `ALPA_Drivers_Report.csv` upon exit for deeper analysis.
 
-### 🔹 2. Performance Monitoring
-* **Power Throttling:** Detects if Windows is restricting process power via `NtQueryInformationProcess`.
-* **Core Parking:** Monitors the percentage of parked CPU cores that cause wake-up latencies.
-* **Processor Queue Length:** Detects if your CPU threads are being bottlenecked by too many active processes.
-* **Context Switches:** Monitors how often the CPU switches between different execution threads—a high count often indicates background "noise" or bloatware.
+### 🔹 2. Process & Security Audit
+* **Resource Monitor:** Detailed sorting by CPU Time, Threads, RAM, VRAM (GPU Memory), and Disk I/O.
+* **Security Scanner:** Built-in heuristic detection for:
+    * **Hidden Miners:** Checks specific paths (AppData/Temp) for disguised malware.
+    * **Fake System Processes:** Detects fake `svchost.exe`, `csrss.exe`, etc., running from wrong directories.
+    * **Hidden Consoles:** Identifies suspicious CMD/PowerShell windows running in the background.
 
-### 🔹 3. Advanced Resource Audit (PERF)
-* **Disk I/O:** Monitors Disk Queue Length, Response Time (ms), and Active Time to identify stutters during asset loading.
-* **Memory Insight:** Tracks Page Faults, available RAM, and the System Cache (Standby List) volume.
-* **Network & UDP:** Detects UDP receive errors to diagnose connection stability in online shooters.
+### 🔹 3. Performance & Hardware Monitor
+* **Interrupts Per Core:** Visualizes interrupt load distribution across CPU cores to detect "Core 0" bottlenecks.
+* **Global I/O:** Monitors total Internet bandwidth and Disk usage percentage.
+* **Memory Insight:** Tracks Page Faults, Available RAM, and Standby Cache.
+* **Disk Diagnostics:** Monitors Queue Length and Response Time for NVMe/SSD/HDD.
 
-### 🔹 4. Kernel Tracing (ETW)
-* **DPC/ISR Audit:** Uses Event Tracing for Windows (ETW) to monitor **Deferred Procedure Calls (DPC)**.
-* **Spike Detection:** Automatically logs any DPC spike exceeding **500µs** in red. This is the ultimate way to find problematic drivers causing micro-stutters and input lag.
+### 🔹 4. Input & System Lag
+* **Timer Resolution:** Displays the current Windows Timer Resolution (e.g., 0.5ms or 15.6ms).
+* **Mouse Polling Rate:** Real-time Hz calculation using Raw Input.
+* **System Tweaks Check:**
+    * **MPO (Multi-Plane Overlay):** Detects if MPO is Enabled/Disabled.
+    * **HAGS:** Checks Hardware Accelerated GPU Scheduling status.
+    * **HPET:** Verifies if High Precision Event Timer is forced.
+    * **TSC Invariant:** Checks CPU timer stability.
 
-### 🔹 5. System Diagnostics
-* **Hardware Info:** Quick view of OS version, CPU thread count, and physical disk models (NVMe/SSD/HDD).
-* **Auto-Audit:** The application automatically initiates a full system scan upon launch.
+### 🔹 5. Startup Manager
+* **Deep Audit:** Scans multiple startup locations often missed by Task Manager:
+    * Startup Folders (User/Common).
+    * Registry Keys (Run/RunOnce for HKLM & HKCU).
+    * **Task Scheduler:** Detects hidden tasks often used by malware.
+    * **Non-System Services:** Lists active third-party services.
 
 ---
 
 ## 🛠 Technical Details
 
+* **Version:** 1.5
 * **Language:** C# (.NET Framework 4.8)
-* **Architecture:** Optimized for minimal overhead.
+* **Core Tech:** ETW (KernelTraceControl), P/Invoke (NtQuerySystemInformation), PerformanceCounters.
 * **Author:** amazingb01 (Adiru)
 
 ---
@@ -44,15 +57,22 @@
 ## ⚠️ Important Requirements
 
 ### 🛡️ Run as Administrator
-To access **Kernel Tracing** and monitor **DPC spikes**, ALPA must be launched with **Administrator Privileges**. 
-* If launched as a standard user, the Console will display: `[WARN] Running as User. Kernel trace disabled!`.
+To access **Kernel Tracing (DPC/ISR)**, **Pagefile Info**, and **Security Scans**, ALPA must be launched with **Administrator Privileges**.
+* The application automatically creates a scheduled task (`ALPA_AutoRun`) to launch with highest privileges on logon if needed.
+
+---
 
 ## 📖 How to Use
 
-1.  **Launch:** Run `ALPA.exe` as Administrator.
-2.  **Auto-Audit:** Wait a few seconds for the console to confirm `[OK] Admin rights confirmed. Kernel trace enabled`.
-3.  **Check Latency:** Go to the **LAT** tab and move your mouse quickly to see your real-time Polling Rate.
-4.  **Find Stutters:** Keep ALPA running in the background while gaming. Check the **Console (LOG)** tab afterward. If you see `[SPIKE]` entries, a specific driver is delaying your CPU.
+1. **Launch:** Run `ALPA.exe` as Administrator.
+2. **Calibration:** Wait for `[OK] ALPA Engine LIVE` in the Console tab.
+3. **Gaming Test:** Keep ALPA running in the background while playing.
+4. **Analyze:**
+    * Go to **Drivers (ALL)** to see which driver has the highest `Max (us)`.
+    * Go to **Performance** to check if one CPU core is overloaded with Interrupts.
+    * Check **ALPA_Log.txt** or the CSV report after closing for a summary of lag spikes.
+
+---
 
 ## 🔗 Connect with me
 
