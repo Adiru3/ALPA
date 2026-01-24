@@ -46,3 +46,9 @@ To access **Kernel Tracing** and monitor **DPC spikes**, ALP must be launched wi
 2.  **Auto-Audit:** Wait a few seconds for the console to confirm `[OK] Admin rights confirmed. Kernel trace enabled`.
 3.  **Check Latency:** Go to the **LAT** tab and move your mouse quickly to see your real-time Polling Rate.
 4.  **Find Stutters:** Keep ALP running in the background while gaming. Check the **Console (LOG)** tab afterward. If you see `[SPIKE]` entries, a specific driver is delaying your CPU.
+
+## 🔗 Connect with me
+
+[![YouTube](https://img.shields.io/badge/YouTube-@adiruaim-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/@adiruaim)
+[![TikTok](https://img.shields.io/badge/TikTok-@adiruhs-000000?style=for-the-badge&logo=tiktok)](https://www.tiktok.com/@adiruhs)
+[![Donatello](https://img.shields.io/badge/Support-Donatello-orange?style=for-the-badge)](https://donatello.to/Adiru3)
