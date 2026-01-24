@@ -14,7 +14,7 @@
 
 ### 🔹 2. Performance Monitoring
 * **Power Throttling:** Detects if Windows is restricting process power via `NtQueryInformationProcess`.
-* * **Core Parking:** Monitors the percentage of parked CPU cores that cause wake-up latencies.
+* **Core Parking:** Monitors the percentage of parked CPU cores that cause wake-up latencies.
 * **Processor Queue Length:** Detects if your CPU threads are being bottlenecked by too many active processes.
 * **Context Switches:** Monitors how often the CPU switches between different execution threads—a high count often indicates background "noise" or bloatware.
 * 
