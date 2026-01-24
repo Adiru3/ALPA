@@ -35,6 +35,9 @@
 ### 🔹 4. Input & System Lag
 * **Timer Resolution:** Displays the current Windows Timer Resolution (e.g., 0.5ms or 15.6ms).
 * **Mouse Polling Rate:** Real-time Hz calculation using Raw Input.
+
+<img width="820" height="452" alt="image" src="https://github.com/user-attachments/assets/ea0c9f25-671a-495b-849b-e1e2402a12d2" />
+
 * **System Tweaks Check:**
     * **MPO (Multi-Plane Overlay):** Detects if MPO is Enabled/Disabled.
     * **HAGS:** Checks Hardware Accelerated GPU Scheduling status.
