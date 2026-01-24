@@ -2,7 +2,7 @@
 
 **ALPA** is a high-performance system auditing utility developed by **amazingb01 (Adiru)**. It is designed for gamers, power users, and system optimizers to diagnose real-time latencies and performance bottlenecks that affect gameplay and system responsiveness.
 
-<img width="504" height="206" alt="image" src="https://github.com/user-attachments/assets/2bde7a15-77d4-4c70-9f12-c336fd659093" />
+<img width="845" height="292" alt="image" src="https://github.com/user-attachments/assets/ebdfba59-4884-47cf-90d5-9fbc2de4cff6" />
 
 ---
 
