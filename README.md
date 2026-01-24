@@ -13,14 +13,21 @@
 * **Mouse Polling Rate:** Real-time calculation of mouse frequency (Hz) using `Raw Input` (WM_INPUT) to ensure your peripheral is performing at its rated speed.
 
 ### 🔹 2. Performance Monitoring
+* **Power Throttling:** Detects if Windows is restricting process power via `NtQueryInformationProcess`.
+* * **Core Parking:** Monitors the percentage of parked CPU cores that cause wake-up latencies.
 * **Processor Queue Length:** Detects if your CPU threads are being bottlenecked by too many active processes.
 * **Context Switches:** Monitors how often the CPU switches between different execution threads—a high count often indicates background "noise" or bloatware.
+* 
+### 🔹 3. Advanced Resource Audit (PERF)
+* **Disk I/O:** Monitors Disk Queue Length, Response Time (ms), and Active Time to identify stutters during asset loading.
+* **Memory Insight:** Tracks Page Faults, available RAM, and the System Cache (Standby List) volume.
+* **Network & UDP:** Detects UDP receive errors to diagnose connection stability in online shooters.
 
-### 🔹 3. Kernel Tracing (ETW)
+### 🔹 4. Kernel Tracing (ETW)
 * **DPC/ISR Audit:** Uses Event Tracing for Windows (ETW) to monitor **Deferred Procedure Calls (DPC)**.
 * **Spike Detection:** Automatically logs any DPC spike exceeding **500µs** in red. This is the ultimate way to find problematic drivers causing micro-stutters and input lag.
 
-### 🔹 4. System Diagnostics
+### 🔹 5. System Diagnostics
 * **Hardware Info:** Quick view of OS version, CPU thread count, and physical disk models (NVMe/SSD/HDD).
 * **Auto-Audit:** The application automatically initiates a full system scan upon launch.
 
