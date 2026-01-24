@@ -2,6 +2,8 @@
 
 **ALPA** is a high-performance system auditing utility developed by **amazingb01 (Adiru)**. It is designed for gamers, power users, and system optimizers to diagnose real-time latencies and performance bottlenecks that affect gameplay and system responsiveness.
 
+<img width="504" height="206" alt="image" src="https://github.com/user-attachments/assets/2bde7a15-77d4-4c70-9f12-c336fd659093" />
+
 ---
 
 ## 🚀 Features
@@ -44,5 +46,3 @@ To access **Kernel Tracing** and monitor **DPC spikes**, ALP must be launched wi
 2.  **Auto-Audit:** Wait a few seconds for the console to confirm `[OK] Admin rights confirmed. Kernel trace enabled`.
 3.  **Check Latency:** Go to the **LAT** tab and move your mouse quickly to see your real-time Polling Rate.
 4.  **Find Stutters:** Keep ALP running in the background while gaming. Check the **Console (LOG)** tab afterward. If you see `[SPIKE]` entries, a specific driver is delaying your CPU.
-
----*
