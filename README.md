@@ -85,6 +85,41 @@ To access **Kernel Tracing (DPC/ISR)**, **Pagefile Info**, and **Security Scans*
 
 ---
 
+## 🎮 Usage
+
+### Interactive Mode
+Run `LightweightAV.exe` to see the console menu:
+
+* **Full System Scan:** Scans the entire `C:\` drive using multi-threading.
+* **Memory Scan:** Checks all running processes for known signatures and heuristics.
+* **Real-Time Monitor:** Watches for new/modified files instantly.
+* **Add to Startup:** Adds the program to the Registry to start automatically (Minimized).
+* **Scan Specific Path:** Scan a single file or folder (supports drag & drop).
+
+### Silent / Tray Mode
+To start the antivirus in the background (System Tray only), run:
+
+```dos
+LightweightAV.exe /minimized
+
+> **Note:** Right-click the shield icon in the tray to open the console or exit.
+
+---
+
+## 🔍 Technical Details
+
+* **Entropy Check:** Uses the Shannon entropy formula to calculate data density. Files with entropy $H > 7.5$ are flagged as suspicious (likely Packed, Encrypted, or Obfuscated).
+  
+  The formula used is:
+  $$H = -\sum_{i=1}^{n} P(x_i) \log_2 P(x_i)$$
+
+* **User Mode Hooking:** Uses `FileSystemWatcher` to monitor file system events (Created, Changed, Renamed) in real-time without the need for complex kernel-mode drivers.
+
+* **P/Invoke:** Utilizes Windows API imports (`kernel32.dll`, `user32.dll`) to interact with the OS for tasks like managing console window visibility and process handling.
+
+* **Registry Persistence:** Implements auto-start functionality by writing the executable path to:
+  `HKCU\Software\Microsoft\Windows\CurrentVersion\Run`
+
 ## 🔗 Connect with me
 
 [![YouTube](https://img.shields.io/badge/YouTube-@adiruaim-FF0000?style=for-the-badge&logo=youtube)](https://www.youtube.com/@adiruaim)
