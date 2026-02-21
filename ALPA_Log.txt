@@ -1,0 +1,35 @@
+--- ALPA Audit Log Start ---
+[2026-02-21 14:29:12] [14:29:12] [POWER] Power Throttling for ALPA is DISABLED
+[2026-02-21 14:29:12] [14:29:12] [SYS] Multi-Plane Overlay (MPO) is Disabled.
+[2026-02-21 14:29:12] --- SYSTEM AUDIT ---
+[2026-02-21 14:29:12] GPU Scheduling (HAGS): Enabled
+[2026-02-21 14:29:12] 
+Power Plan: High Performance
+[2026-02-21 14:29:12] 
+--- CPU COUNTER INFO ---
+[2026-02-21 14:29:12] Invariant TSC Support: YES (Optimal)
+[2026-02-21 14:29:12] 
+--- TIMER & HPET INFO ---
+[2026-02-21 14:29:12] HPET Force (useplatformclock): Disabled (Optimal)
+[2026-02-21 14:29:12] 
+--- PAGEFILE INFO ---
+[2026-02-21 14:29:12] Location: D:\pagefile.sys
+[2026-02-21 14:29:12] Size:     16384 MB
+[2026-02-21 14:29:12] Usage:    5096 MB
+[2026-02-21 14:29:12] 
+--- DEEP VIRUS & ANOMALY SCAN (MAX) ---
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: language_server_windows_x64 (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: nvcontainer (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: nvcontainer (No Company Info)
+[2026-02-21 14:29:12] [14:29:12] [CRIT] MALWARE PATH DETECTED: telegram (c:\users\adiru\appdata\roaming\telegram desktop\telegram.exe)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: nvcontainer (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: plugin_host-3.8 (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: crash_handler (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: amazeaim (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: amazegaming (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: amazenetwork (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: nvcontainer (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: plugin_host-3.3 (No Company Info)
+[2026-02-21 14:29:12] [WARN] Unsigned/Unknown: settimerresolution (No Company Info)
+[2026-02-21 14:29:13] [14:29:13] [INFO] Check out AmazeMem for RAM optimization: https://adiru3.github.io/AmazeMem/
+[2026-02-21 14:29:15] [14:29:15] [OK] ALPA Engine LIVE. Monitoring stats & spikes...

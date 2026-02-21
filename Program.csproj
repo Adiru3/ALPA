@@ -1,0 +1,13 @@
+<PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+```
+
+Or via Package Manager Console:
+```
+Install-Package System.Runtime.CompilerServices.Unsafe -Version 6.0.0
+```
+
+### Option 2: Update Microsoft.Diagnostics.Tracing.TraceEvent
+
+The TraceEvent library might be using an incompatible version. Update to the latest:
+```
+Install-Package Microsoft.Diagnostics.Tracing.TraceEvent
